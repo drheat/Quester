@@ -1,0 +1,35 @@
+main: com.catalinionescu.quester.Quester
+name: Quester
+version: '1.0'
+description: Minecraft Quest Engine
+load: POSTWORLD
+author: Catalin Ionescu
+
+commands:
+  quest:
+    aliases:
+    - q
+    description: Quester command
+    permission: quester.use
+    permission-message: You do not have permission to run this command!
+    usage: /<command>
+  questadmin:
+    aliases:
+    - qa
+    description: Quester admins only command
+    permission: quester.admin
+
+permissions:
+  quester.admin:
+    description: Allows running Quester admin commands
+    default: op
+  quester.use:
+    description: Allows running Quester user commands
+    default: true
+  quester.*:
+    description: All quester permissions
+    children:
+      quester.use: true
+      quester.admin: true
+
+api-version: '1.20'
